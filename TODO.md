@@ -54,7 +54,7 @@
 
 - [x] Step 1: 在 `pubspec.yaml` 中添加核心依赖（Riverpod, GoRouter, Dio, Isar 等）
 - [x] Step 2: 运行 `flutter pub get`（Windows 开发者模式问题已解决）
-- [ ] Step 3: 创建 `lib/core/utils/logger.dart`（移至会话 2 之后或合并执行）
+- [x] Step 3: 创建 `lib/core/utils/logger.dart`（会话 2 中已完成）
 - [x] Step 4: 验证 `flutter analyze` 通过
 - [x] Step 5: Git 提交
 
