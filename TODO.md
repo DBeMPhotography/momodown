@@ -26,13 +26,36 @@
 
 ---
 
-## Task 2: 集成核心 Flutter 依赖 ⏳ IN PROGRESS
+## 打地基 ⛏️（Task 2 之前）
+
+### 会话 1: 前端 Repository 抽象层 + 环境配置 ✅ COMPLETE
+- [x] 创建 `lib/core/config/app_config.dart`
+- [x] 创建 `lib/core/network/api_endpoints.dart`
+- [x] 创建 Feature 分层示例（`memo` 模块：entity / repository / model / local impl / provider）
+- [x] 编写单元测试（13 个测试全部通过）
+- [x] `flutter analyze` 零错误
+- [x] Git 提交 `7077f82`
+
+### 会话 2: 模块间通信 + 路由自注册 ⏳ PENDING
+- [ ] 创建 `lib/core/events/app_event_bus.dart`
+- [ ] 重构 `lib/core/router/app_router.dart`（Feature 自注册）
+- [ ] 创建 Feature 模块模板
+- [ ] 写测试 + Git 提交
+
+### 会话 3: 后端地基 ⏳ PENDING
+- [ ] 统一响应格式 + 全局异常过滤器
+- [ ] ConfigModule + `.env` 加载
+- [ ] 写测试 + Git 提交
+
+---
+
+## Task 2: 集成核心 Flutter 依赖 ✅ COMPLETE
 
 - [x] Step 1: 在 `pubspec.yaml` 中添加核心依赖（Riverpod, GoRouter, Dio, Isar 等）
-- [ ] Step 2: 运行 `flutter pub get`（等待用户启用 Windows 开发者模式后重新执行）
-- [ ] Step 3: 创建 `lib/core/utils/logger.dart`
-- [ ] Step 4: 验证 `flutter analyze` 通过
-- [ ] Step 5: Git 提交
+- [x] Step 2: 运行 `flutter pub get`（Windows 开发者模式问题已解决）
+- [ ] Step 3: 创建 `lib/core/utils/logger.dart`（移至会话 2 之后或合并执行）
+- [x] Step 4: 验证 `flutter analyze` 通过
+- [x] Step 5: Git 提交
 
 ---
 

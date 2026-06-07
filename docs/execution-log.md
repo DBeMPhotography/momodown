@@ -25,16 +25,51 @@
 
 ---
 
+## 打地基 ⛏️（Task 2 之前，为模块化扩展做准备）
+
+### 会话 1: 前端 Repository 抽象层 + 环境配置 ✅ COMPLETE
+**提交：** `7077f82`
+**状态：** `flutter analyze` 零错误，`flutter test` 15 个测试全部通过
+
+**完成内容：**
+1. ✅ 创建 `lib/core/config/app_config.dart`（支持 `--dart-define` 编译时覆盖 baseUrl / debug 模式）
+2. ✅ 创建 `lib/core/network/api_endpoints.dart`（baseUrl 从 AppConfig 读取，path 常量独立）
+3. ✅ 创建 Feature 分层示例（`memo` 模块）：
+   - `domain/entities/memo_entity.dart` — 纯领域实体，与存储无关
+   - `domain/repositories/memo_repository.dart` — 仓库抽象接口
+   - `data/models/memo_model.dart` — 数据层模型（Isar/网络适配器）
+   - `data/repositories/local_memo_repository.dart` — 本地实现（当前为内存占位，后续接入 Isar）
+   - `data/repositories/memo_repository_provider.dart` — Riverpod Provider，支持无痛替换实现
+4. ✅ 配套单元测试 13 个（AppConfig + ApiEndpoints + LocalMemoRepository）
+5. ✅ GitHub 远程已配置，代码已推送
+
+**关键设计决策：**
+- 环境配置使用 `String.fromEnvironment` + fallback，无需额外依赖包
+- Repository 通过 Riverpod Provider 注入，切换数据源只需 override Provider
+- Feature 目录采用 Clean Architecture 分层：`domain/` → `data/` → `presentation/`
+
+---
+
 ## 进行中 ⏳
 
-### Task 2: 集成核心 Flutter 依赖
-**当前状态：** `pubspec.yaml` 已修改并添加了所有核心依赖，但 `flutter pub get` 因 Windows 开发者模式未启用而失败。
+### 会话 2: 模块间通信 + 路由自注册（待开始）
+**目标：** Feature 之间解耦，新增 Feature 无需修改核心路由文件
 
-**用户操作后待执行：**
-1. 重新运行 `flutter pub get`
-2. 创建 `lib/core/utils/logger.dart`
-3. 验证 `flutter analyze`
-4. Git 提交
+**预计内容：**
+1. 创建 `lib/core/events/app_event_bus.dart`（全局事件总线）
+2. 重构 `lib/core/router/app_router.dart`（支持 Feature 自注册路由）
+3. 创建 Feature 模块模板（含路由注册示例）
+4. 写测试 + Git 提交
+
+---
+
+### Task 2: 集成核心 Flutter 依赖
+**当前状态：** `flutter pub get` 已成功（Windows 开发者模式问题已解决）
+
+**待执行：**
+1. 创建 `lib/core/utils/logger.dart`
+2. 验证 `flutter analyze`
+3. Git 提交
 
 **关键修改文件：**
 - `pubspec.yaml` — 已添加 Riverpod, GoRouter, Dio, Isar, secure_storage, local_notifications, speech_to_text, freezed, google_fonts 等依赖
