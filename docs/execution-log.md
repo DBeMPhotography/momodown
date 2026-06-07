@@ -52,18 +52,34 @@
 
 ## 进行中 ⏳
 
-### 会话 2: 模块间通信 + 路由自注册（待开始）
-**目标：** Feature 之间解耦，新增 Feature 无需修改核心路由文件
+### 会话 2: 模块间通信 + 路由自注册 ✅ COMPLETE
+**提交：** `893b7b7`
+**状态：** `flutter analyze` 零错误，`flutter test` 23 个测试全部通过
 
-**预计内容：**
-1. 创建 `lib/core/events/app_event_bus.dart`（全局事件总线）
-2. 重构 `lib/core/router/app_router.dart`（支持 Feature 自注册路由）
-3. 创建 Feature 模块模板（含路由注册示例）
-4. 写测试 + Git 提交
+**完成内容：**
+1. ✅ 创建 `lib/core/utils/logger.dart` — 封装 `logger` 包，提供 d/i/w/e 四级日志
+2. ✅ 创建 `lib/core/events/app_event_bus.dart` — 基于广播 Stream 的类型安全事件总线，Riverpod 管理生命周期
+3. ✅ 创建路由自注册基础设施：
+   - `core/router/feature_module.dart` — Feature 模块接口
+   - `core/router/route_registry.dart` — 路由注册表，合并所有 Feature 路由
+   - `core/router/app_router.dart` — GoRouter Provider，从注册表读取路由
+4. ✅ Feature 模块模板示例：
+   - `features/home/home_module.dart` + `home_page.dart` — 首页 `/`
+   - `features/memo/memo_module.dart` + `memo_list_page.dart` — 备忘录 `/memos`
+5. ✅ 更新 `lib/main.dart` — 使用 `ProviderScope` + `MaterialApp.router` + 路由 override
+6. ✅ 配套单元测试 10 个（AppLogger 1 + AppEventBus 3 + RouteRegistry 4 + Widget 1）
+
+**关键设计决策：**
+- Feature 自注册：新增模块只需实现 `FeatureModule`，在 `main.dart` 的 `modules` 列表中加入，无需修改 `app_router.dart`
+- 事件总线基于 `StreamController.broadcast`，天然支持多播和类型过滤
+- `RouteRegistry` 通过 `overrideWithValue` 注入，方便测试时 Mock 路由
 
 ---
 
-### Task 2: 集成核心 Flutter 依赖
+## 进行中 ⏳
+
+### 会话 3: 后端地基（待开始）
+**目标：** 统一响应格式 + 全局异常过滤器 + ConfigModule
 **当前状态：** `flutter pub get` 已成功（Windows 开发者模式问题已解决）
 
 **待执行：**

@@ -36,11 +36,12 @@
 - [x] `flutter analyze` 零错误
 - [x] Git 提交 `7077f82`
 
-### 会话 2: 模块间通信 + 路由自注册 ⏳ PENDING
-- [ ] 创建 `lib/core/events/app_event_bus.dart`
-- [ ] 重构 `lib/core/router/app_router.dart`（Feature 自注册）
-- [ ] 创建 Feature 模块模板
-- [ ] 写测试 + Git 提交
+### 会话 2: 模块间通信 + 路由自注册 ✅ COMPLETE
+- [x] 创建 `lib/core/utils/logger.dart`
+- [x] 创建 `lib/core/events/app_event_bus.dart`
+- [x] 重构 `lib/core/router/app_router.dart`（Feature 自注册）
+- [x] 创建 Feature 模块模板（home + memo）
+- [x] 写测试 + Git 提交 (`893b7b7`)
 
 ### 会话 3: 后端地基 ⏳ PENDING
 - [ ] 统一响应格式 + 全局异常过滤器
