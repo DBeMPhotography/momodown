@@ -43,10 +43,10 @@
 - [x] 创建 Feature 模块模板（home + memo）
 - [x] 写测试 + Git 提交 (`893b7b7`)
 
-### 会话 3: 后端地基 ⏳ PENDING
-- [ ] 统一响应格式 + 全局异常过滤器
-- [ ] ConfigModule + `.env` 加载
-- [ ] 写测试 + Git 提交
+### 会话 3: 后端地基 ✅ COMPLETE
+- [x] 统一响应格式 + 全局异常过滤器
+- [x] ConfigModule + `.env` 加载
+- [x] 写测试 + Git 提交
 
 ---
 
@@ -91,12 +91,16 @@
 
 ---
 
-## Task 6: 初始化 NestJS 后端项目
+## Task 6: 初始化 NestJS 后端项目 ✅ COMPLETE
 
-- [ ] Step 1: 创建 `backend/package.json`
-- [ ] Step 2: 创建 `backend/nest-cli.json` + `backend/tsconfig.json`
-- [ ] Step 3: 创建 `backend/src/main.ts` + `backend/src/app.module.ts`
-- [ ] Step 4: 创建 Health Check 模块（controller + module）
+- [x] Step 1: 创建 `backend/package.json`
+- [x] Step 2: 创建 `backend/nest-cli.json` + `backend/tsconfig.json`
+- [x] Step 3: 创建 `backend/src/main.ts` + `backend/src/app.module.ts`
+- [x] Step 4: 创建 Health Check 模块（controller + module）
+- [x] Step 5: 创建 `backend/Dockerfile`
+- [x] Step 6: 创建 E2E 测试骨架 `backend/test/app.e2e-spec.ts`
+- [x] Step 7: `npm install` + `npm run build` + `npm run start:dev`，验证 `/api/health` 返回统一格式
+- [x] Step 8: Git 提交
 - [ ] Step 5: 创建 `backend/Dockerfile`
 - [ ] Step 6: 创建 E2E 测试骨架 `backend/test/app.e2e-spec.ts`
 - [ ] Step 7: `npm install` + `npm run build` + `npm run start:dev`，验证 `/api/health` 返回 `{"status":"ok"}`

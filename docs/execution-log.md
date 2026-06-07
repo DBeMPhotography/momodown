@@ -78,18 +78,32 @@
 
 ## 进行中 ⏳
 
-### 会话 3: 后端地基（待开始）
-**目标：** 统一响应格式 + 全局异常过滤器 + ConfigModule
-**当前状态：** `flutter pub get` 已成功（Windows 开发者模式问题已解决）
+### 会话 3: 后端地基 ✅ COMPLETE
+**提交：** `（即将提交）`
+**状态：** `npm run build` 成功，`npm run test:e2e` 通过，`npm run start:dev` 验证 `/api/health` 返回统一响应格式
 
-**待执行：**
-1. 创建 `lib/core/utils/logger.dart`
-2. 验证 `flutter analyze`
-3. Git 提交
+**完成内容：**
+1. ✅ 初始化 NestJS 项目：`backend/package.json` + `tsconfig.json` + `nest-cli.json`
+2. ✅ 创建 `backend/src/main.ts` + `app.module.ts`（集成 ConfigModule + `.env` 加载）
+3. ✅ 创建 Health Check 模块：`health.controller.ts` + `health.module.ts`
+4. ✅ 创建统一响应拦截器：`common/interceptors/transform.interceptor.ts`
+   - 自动 wrap 所有响应为 `{code, message, data, timestamp}`
+5. ✅ 创建全局异常过滤器：`common/filters/all-exceptions.filter.ts`
+   - 自动 wrap 所有异常为 `{code, message, data, path, timestamp}`
+6. ✅ 注册全局拦截器与过滤器：`common/common.module.ts`（使用 `APP_INTERCEPTOR` + `APP_FILTER`）
+7. ✅ 创建 `backend/Dockerfile` + `.env.example` + `.gitignore`
+8. ✅ 创建 E2E 测试骨架：`test/jest-e2e.json` + `test/app.e2e-spec.ts`
+9. ✅ 验证：E2E 测试通过，`curl /api/health` 返回 `{code:200, message:'success', data:{status:'ok'}}`
 
-**关键修改文件：**
-- `pubspec.yaml` — 已添加 Riverpod, GoRouter, Dio, Isar, secure_storage, local_notifications, speech_to_text, freezed, google_fonts 等依赖
-- 注意：`intl` 版本已从 `^0.19.0` 修改为 `^0.20.2`（因 flutter_localizations SDK 锁定）
+**关键设计决策：**
+- 统一响应格式通过 `TransformInterceptor` 实现，所有成功响应自动包装
+- 全局异常过滤器通过 `AllExceptionsFilter` 实现，覆盖 HttpException 和未捕获异常
+- `CommonModule` 使用 NestJS 的 `APP_INTERCEPTOR` / `APP_FILTER` 令牌全局注册，无需在每个 Controller 上手动加装饰器
+- ConfigModule 配置为全局可用（`isGlobal: true`），支持 `.env.local` 覆盖 `.env`
+
+---
+
+## 待开始 📋
 - `cupertino_icons` 已被移除（我们使用 Material 3，不需要）
 
 ---
