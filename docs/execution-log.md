@@ -1,7 +1,7 @@
 # 墨墨记下 (MemoDown) — 执行状态日志
 
-> 最后更新：2026-06-03  
-> 会话建议：当前会话上下文已满，请在新会话中继续执行 Task 2
+> 最后更新：2026-06-07  
+> 会话建议：Phase 1 已完成约 80%，请在新会话中继续执行剩余 Task 3 / 5 / 7 / 8
 
 ---
 
@@ -103,19 +103,25 @@
 
 ---
 
-## 待开始 📋
-- `cupertino_icons` 已被移除（我们使用 Material 3，不需要）
+## 待开始 📋（Phase 1 剩余任务，将在会话 4 中完成）
 
----
-
-## 待开始 📋
-
-- Task 3: 搭建 Material 3 主题系统（含深色模式）
-- Task 4: 配置 GoRouter 集中路由
-- Task 5: 搭建 Dio 网络客户端与拦截器
-- Task 6: 初始化 NestJS 后端项目
-- Task 7: 配置 Docker Compose 本地开发环境
-- Task 8: 最终集成验证与 Phase 1 收尾
+- **Task 3**: 搭建 Material 3 主题系统（含深色模式）
+  - `lib/core/theme/app_colors.dart` + `app_theme.dart`
+  - `lib/app.dart`（MaterialApp.router + ProviderScope）
+  - 修改 `lib/main.dart`
+  - Widget 测试验证主题与深色模式
+- **Task 5**: 搭建 Dio 网络客户端与拦截器
+  - `lib/core/network/dio_client.dart`（单例 + LogInterceptor + ErrorInterceptor）
+  - 单元测试
+- **Task 7**: 配置 Docker Compose 本地开发环境
+  - `docker-compose.yml`（PostgreSQL + Redis + pgAdmin）
+  - `.env.example`
+  - 启动验证
+- **Task 8**: 最终集成验证与 Phase 1 收尾
+  - 全量 Flutter 测试 + 静态分析
+  - 模拟器启动验证
+  - 后端 `npm run start:prod` + Health Check
+  - 创建/更新 `README.md`
 
 ---
 
@@ -123,6 +129,6 @@
 
 在新会话中，只需说：
 
-> **"继续执行 Task 2，从 flutter pub get 开始。阅读 docs/execution-log.md 获取上下文。"**
+> **"继续执行 Phase 1 剩余任务（Task 3 / Task 5 / Task 7 / Task 8）。阅读 docs/execution-log.md 获取上下文。"**
 
-我会自动读取日志和 TODO.md，无缝衔接继续工作。
+我会自动读取日志和 TODO.md，从 Task 3（Material 3 主题系统）开始无缝衔接继续工作。

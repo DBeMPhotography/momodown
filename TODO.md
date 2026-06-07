@@ -101,10 +101,6 @@
 - [x] Step 6: 创建 E2E 测试骨架 `backend/test/app.e2e-spec.ts`
 - [x] Step 7: `npm install` + `npm run build` + `npm run start:dev`，验证 `/api/health` 返回统一格式
 - [x] Step 8: Git 提交
-- [ ] Step 5: 创建 `backend/Dockerfile`
-- [ ] Step 6: 创建 E2E 测试骨架 `backend/test/app.e2e-spec.ts`
-- [ ] Step 7: `npm install` + `npm run build` + `npm run start:dev`，验证 `/api/health` 返回 `{"status":"ok"}`
-- [ ] Step 8: Git 提交
 
 ---
 
