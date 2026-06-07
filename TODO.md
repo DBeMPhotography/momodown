@@ -15,21 +15,21 @@
 
 ---
 
-## Task 1: 初始化 Flutter 项目与版本配置
+## Task 1: 初始化 Flutter 项目与版本配置 ✅ COMPLETE
 
-- [ ] Step 1: 创建 Flutter 项目 `momodown`
-- [ ] Step 2: 配置 Android `minSdk = 24`
-- [ ] Step 3: 配置 iOS `platform :ios, '13.0'`
-- [ ] Step 4: 添加 `analysis_options.yaml` 严格静态分析配置
-- [ ] Step 5: 验证 `flutter analyze` 零错误 + `flutter build apk --debug` 成功
-- [ ] Step 6: 首次 Git 提交
+- [x] Step 1: 创建 Flutter 项目 `momodown`
+- [x] Step 2: 配置 Android `minSdk = 24`
+- [x] Step 3: 配置 iOS `platform :ios, '13.0'`
+- [x] Step 4: 添加 `analysis_options.yaml` 严格静态分析配置
+- [x] Step 5: 验证 `flutter analyze` 零错误 + `flutter build apk --debug` 成功
+- [x] Step 6: 首次 Git 提交 (`6cfdc8d`)
 
 ---
 
-## Task 2: 集成核心 Flutter 依赖
+## Task 2: 集成核心 Flutter 依赖 ⏳ IN PROGRESS
 
-- [ ] Step 1: 在 `pubspec.yaml` 中添加核心依赖（Riverpod, GoRouter, Dio, Isar 等）
-- [ ] Step 2: 运行 `flutter pub get`
+- [x] Step 1: 在 `pubspec.yaml` 中添加核心依赖（Riverpod, GoRouter, Dio, Isar 等）
+- [ ] Step 2: 运行 `flutter pub get`（等待用户启用 Windows 开发者模式后重新执行）
 - [ ] Step 3: 创建 `lib/core/utils/logger.dart`
 - [ ] Step 4: 验证 `flutter analyze` 通过
 - [ ] Step 5: Git 提交
